@@ -13,12 +13,17 @@ public:
 	~QtGuiClass();
 	void enter();
 	void bas(); 
+	void aktar();
+	
 	
 public slots:
 	void cek();
 
 public slots:
 	void at();
+
+public slots:
+	void aktarilan();
 
 private:
 	Ui::QtGuiClass ui;

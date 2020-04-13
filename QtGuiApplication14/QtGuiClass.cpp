@@ -14,8 +14,11 @@
 #include <qmenu.h>
 #include <qaction.h>
 #include <qdialog.h>
+#include <QtXml/qxml.h>
+#include <QXmlStreamWriter>
 
-//Bu kodlar csv dosyası oluşturup, bilgisayarda herhangi bir yere farklı kaydetmek amacıyla yazılmıştır.
+
+//Bu kodlar csv ve xml dosyası oluşturup, bilgisayarda herhangi bir yere farklı kaydetmek amacıyla yazılmıştır.
 
 QtGuiClass::QtGuiClass(QWidget *parent)
 	: QDialog(parent)
@@ -23,6 +26,7 @@ QtGuiClass::QtGuiClass(QWidget *parent)
 	ui.setupUi(this);
 	enter();
 	bas();
+    aktar();
 }
 
 QtGuiClass::~QtGuiClass()
@@ -31,8 +35,7 @@ QtGuiClass::~QtGuiClass()
 
 void QtGuiClass::enter()
 {
-	connect(ui.pushButton, SIGNAL(clicked()), this, SLOT(at()));
-	//connect(ui.actionexport, SIGNAL(triggered()), this, SLOT(at()));
+    connect(ui.pushButton, SIGNAL(clicked()), this, SLOT(at()));
 }
 
 
@@ -41,6 +44,13 @@ void QtGuiClass::bas()
 	connect(ui.pushButton_2, SIGNAL(clicked()), this, SLOT(cek()));
 }
 
+void QtGuiClass::aktar()
+{
+    connect(ui.pushButton_3, SIGNAL(clicked()), this, SLOT(aktarilan()));
+}
+
+
+
 void QtGuiClass::cek()
 {
 	ui.tableWidget->setItem(0, 0, new QTableWidgetItem(QString(ui.comboBox->currentText())));
@@ -48,6 +58,8 @@ void QtGuiClass::cek()
 	ui.tableWidget->setItem(1, 0, new QTableWidgetItem(QString(ui.comboBox_3->currentText())));
 	ui.tableWidget->setItem(1, 1, new QTableWidgetItem(QString(ui.comboBox_4->currentText())));
 }
+
+
 
 void QtGuiClass::at()
 {
@@ -89,4 +101,39 @@ void QtGuiClass::at()
     }
 
 }
+
+void QtGuiClass::aktarilan()
+{
+    QString filename = QFileDialog::getSaveFileName(
+        this,
+        tr("Save Document"),
+        QDir::currentPath(),
+        tr("Extensible Markup Language Spreadsheet (*.xml);;"));
+
+    QFile f(filename);
+
+    if (f.open(QTemporaryFile::WriteOnly | QFile::Truncate))
+    {
+        QXmlStreamWriter xmlWriter(&f);
+            xmlWriter.setAutoFormatting(true);
+            xmlWriter.writeStartDocument();
+        for (int c = 0; c < ui.tableWidget->columnCount(); ++c)
+        {
+            xmlWriter.writeStartElement(ui.tableWidget->horizontalHeaderItem(c)->data(Qt::DisplayRole).toString());
+
+            for (int r = 0; r < ui.tableWidget->rowCount(); ++r)
+            {
+                xmlWriter.writeTextElement(ui.tableWidget->horizontalHeaderItem(c)->data(Qt::DisplayRole).toString(), ui.tableWidget->item(r, c)->text());
+               
+            }   
+            xmlWriter.writeEndElement();
+        }
+       
+        f.flush();
+        f.close();
+    }
+
+}
+
+
 
