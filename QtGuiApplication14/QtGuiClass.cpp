@@ -1,4 +1,4 @@
-#include "QtGuiClass.h"
+﻿#include "QtGuiClass.h"
 #include <qdebug.h>
 #include <QFile>
 #include <qtablewidget.h>
@@ -14,6 +14,8 @@
 #include <qmenu.h>
 #include <qaction.h>
 #include <qdialog.h>
+
+//Bu kodlar csv dosyası oluşturup, bilgisayarda herhangi bir yere farklı kaydetmek amacıyla yazılmıştır.
 
 QtGuiClass::QtGuiClass(QWidget *parent)
 	: QDialog(parent)
