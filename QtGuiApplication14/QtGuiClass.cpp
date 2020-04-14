@@ -29,7 +29,7 @@ QtGuiClass::QtGuiClass(QWidget *parent)
 	enter();
 	bas();
     aktar();
-    al();
+  
 }
 
 QtGuiClass::~QtGuiClass()
@@ -52,10 +52,10 @@ void QtGuiClass::aktar()
     connect(ui.pushButton_3, SIGNAL(clicked()), this, SLOT(aktarilan()));
 }
 
-void QtGuiClass::al()
+/*void QtGuiClass::al()
 {
     connect(ui.pushButton_4, SIGNAL(clicked()), this, SLOT(aldim()));
-}
+}*/
 
 
 void QtGuiClass::cek()
@@ -140,7 +140,7 @@ void QtGuiClass::aktarilan()
     }
 
 }
-void QtGuiClass::aldim()
+/*void QtGuiClass::aldim()
 {
     QString filename = QFileDialog::getOpenFileName(
         this,
@@ -178,7 +178,7 @@ void QtGuiClass::aldim()
         
     }
     
-}
+}*/
 
             
     

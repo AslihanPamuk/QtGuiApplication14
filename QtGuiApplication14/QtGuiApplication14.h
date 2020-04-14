@@ -19,7 +19,6 @@
 #include <qdialog.h>
 
 
-
 class QtGuiApplication14 : public QMainWindow
 {
 	Q_OBJECT
@@ -28,13 +27,11 @@ public:
 	QtGuiApplication14(QWidget *parent = Q_NULLPTR);
 
 	void dosya();
-
-	
-
+	void dosya2();
+		
 public slots:
 	void dosyaGetir();
-
-	
+	void dosyaAl();
 
 private:
 	Ui::QtGuiApplication14Class ui;

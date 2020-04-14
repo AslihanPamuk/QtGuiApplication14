@@ -14,16 +14,13 @@ public:
 	void enter();
 	void bas(); 
 	void aktar();
-	void al();
 
-	
-	
-	
+
 public slots:
 	void cek();
 	void at();
 	void aktarilan();
-	void aldim();
+
 
 
 private:
