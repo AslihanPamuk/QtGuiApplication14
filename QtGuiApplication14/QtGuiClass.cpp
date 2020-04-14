@@ -16,7 +16,9 @@
 #include <qdialog.h>
 #include <QtXml/qxml.h>
 #include <QXmlStreamWriter>
-
+#include <QXmlStreamReader>
+#include <qplaintextedit.h>
+#include <qtguiglobal.h>
 
 //Bu kodlar csv ve xml dosyası oluşturup, bilgisayarda herhangi bir yere farklı kaydetmek amacıyla yazılmıştır.
 
@@ -27,6 +29,7 @@ QtGuiClass::QtGuiClass(QWidget *parent)
 	enter();
 	bas();
     aktar();
+    al();
 }
 
 QtGuiClass::~QtGuiClass()
@@ -49,6 +52,10 @@ void QtGuiClass::aktar()
     connect(ui.pushButton_3, SIGNAL(clicked()), this, SLOT(aktarilan()));
 }
 
+void QtGuiClass::al()
+{
+    connect(ui.pushButton_4, SIGNAL(clicked()), this, SLOT(aldim()));
+}
 
 
 void QtGuiClass::cek()
@@ -59,15 +66,15 @@ void QtGuiClass::cek()
 	ui.tableWidget->setItem(1, 1, new QTableWidgetItem(QString(ui.comboBox_4->currentText())));
 }
 
-
-
 void QtGuiClass::at()
 {
+    //Farklı kaydetmek için 
     QString filename = QFileDialog::getSaveFileName(
         this,
         tr("Save Document"),
         QDir::currentPath(),
         tr("Comma Separated Values Spreadsheet (*.csv);;"));
+    
 
     QFile f(filename);
 
@@ -134,6 +141,55 @@ void QtGuiClass::aktarilan()
     }
 
 }
+void QtGuiClass::aldim()
+{
+    
+    QString filename = QFileDialog::getOpenFileName(
+        this,
+        tr("Open Document"),
+        QDir::currentPath(),
+        tr("Extensible Markup Language Spreadsheet (*.xml);;"));
+    QFile f(filename);
+        
+    if (f.open(QTemporaryFile::ReadOnly | QFile::Truncate))
+    {
+        QXmlStreamReader reader(&f);
+        
+            if (reader.readNextStartElement())
+            {
+                if (reader.name() == "root")
+                {
+                    while (reader.readNextStartElement())
+                    {
+                        if (reader.name() == "childA")
+                        {
+                            QString s = reader.readElementText();
+                            ui.plainTextEdit->appendPlainText(qPrintable(s));
+
+                        }
+                        
+                        else
+                            reader.skipCurrentElement();
+                    }
+
+                }
+                else
+                    reader.raiseError(QObject::tr("Incorrect file"));
+            }
+           
+        
+    }
+    
+}
+
+            
+    
+   
+
+
+   
+
+
 
 
 

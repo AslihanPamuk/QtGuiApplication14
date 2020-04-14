@@ -34,12 +34,18 @@
     <ClCompile Include="QtGuiClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="QtGuiClass2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QtGuiApplication14.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="QtGuiClass.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="QtGuiClass2.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

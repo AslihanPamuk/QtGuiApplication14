@@ -32,6 +32,7 @@
       <string>New</string>
      </property>
      <addaction name="actionICD"/>
+     <addaction name="importICD"/>
     </widget>
     <addaction name="menuNew"/>
    </widget>
@@ -59,6 +60,11 @@
   <action name="actionICD">
    <property name="text">
     <string>Creat New ICD</string>
+   </property>
+  </action>
+  <action name="importICD">
+   <property name="text">
+    <string>Import ICD</string>
    </property>
   </action>
  </widget>
