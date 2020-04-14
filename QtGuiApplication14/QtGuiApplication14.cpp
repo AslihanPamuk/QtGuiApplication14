@@ -1,6 +1,6 @@
 #include "QtGuiApplication14.h"
 #include "QtGuiClass.h"
-#include "QtGuiClass2.h"
+
 
 QtGuiApplication14::QtGuiApplication14(QWidget *parent)
 	: QMainWindow(parent)

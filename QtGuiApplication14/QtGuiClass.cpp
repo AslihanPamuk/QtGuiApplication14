@@ -108,7 +108,6 @@ void QtGuiClass::at()
     }
 
 }
-
 void QtGuiClass::aktarilan()
 {
     QString filename = QFileDialog::getSaveFileName(
@@ -143,7 +142,6 @@ void QtGuiClass::aktarilan()
 }
 void QtGuiClass::aldim()
 {
-    
     QString filename = QFileDialog::getOpenFileName(
         this,
         tr("Open Document"),
