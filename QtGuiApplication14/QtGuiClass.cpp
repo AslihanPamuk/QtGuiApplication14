@@ -42,6 +42,7 @@ void QtGuiClass::enter()
 }
 
 
+
 void QtGuiClass::bas()
 {
 	connect(ui.pushButton_2, SIGNAL(clicked()), this, SLOT(cek()));
@@ -51,12 +52,6 @@ void QtGuiClass::aktar()
 {
     connect(ui.pushButton_3, SIGNAL(clicked()), this, SLOT(aktarilan()));
 }
-
-/*void QtGuiClass::al()
-{
-    connect(ui.pushButton_4, SIGNAL(clicked()), this, SLOT(aldim()));
-}*/
-
 
 void QtGuiClass::cek()
 {
@@ -140,45 +135,6 @@ void QtGuiClass::aktarilan()
     }
 
 }
-/*void QtGuiClass::aldim()
-{
-    QString filename = QFileDialog::getOpenFileName(
-        this,
-        tr("Open Document"),
-        QDir::currentPath(),
-        tr("Extensible Markup Language Spreadsheet (*.xml);;"));
-    QFile f(filename);
-        
-    if (f.open(QTemporaryFile::ReadOnly | QFile::Truncate))
-    {
-        QXmlStreamReader reader(&f);
-        
-            if (reader.readNextStartElement())
-            {
-                if (reader.name() == "root")
-                {
-                    while (reader.readNextStartElement())
-                    {
-                        if (reader.name() == "childA")
-                        {
-                            QString s = reader.readElementText();
-                            ui.plainTextEdit->appendPlainText(qPrintable(s));
-
-                        }
-                        
-                        else
-                            reader.skipCurrentElement();
-                    }
-
-                }
-                else
-                    reader.raiseError(QObject::tr("Incorrect file"));
-            }
-           
-        
-    }
-    
-}*/
 
             
     

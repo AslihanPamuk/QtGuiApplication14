@@ -62,8 +62,8 @@ void QtGuiClass2::aldim()
                     if (reader.name() == "childA")
                     {
                         QString s = reader.readElementText();
+                        
                         ui.plainTextEdit->appendPlainText(qPrintable(s));
-
                     }
 
                     else

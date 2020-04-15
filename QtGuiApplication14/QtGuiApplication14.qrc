@@ -1,4 +1,16 @@
 <RCC>
-    <qresource prefix="QtGuiApplication14">
+    <qresource prefix="/QtGuiApplication14">
+        <file>Resources/150_-_Cancel-512.png</file>
+        <file>Resources/exportfolder.png</file>
+        <file>Resources/folder.png</file>
+        <file>Resources/importfolder.png</file>
+        <file>Resources/information.png</file>
+        <file>Resources/information2.png</file>
+        <file>Resources/newfolder.png</file>
+        <file>Resources/folder-next-512.png</file>
+        <file>Resources/exportcsv.png</file>
+        <file>Resources/importcsv.png</file>
+        <file>Resources/import xml.png</file>
+        <file>Resources/file_3_document_extension_download_file_format_xml-512.png</file>
     </qresource>
 </RCC>

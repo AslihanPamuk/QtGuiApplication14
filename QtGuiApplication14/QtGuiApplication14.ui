@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>493</width>
-    <height>310</height>
+    <width>549</width>
+    <height>422</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>493</width>
+     <width>549</width>
      <height>21</height>
     </rect>
    </property>
@@ -45,9 +45,15 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionICD"/>
+   <addaction name="importICD"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNew">
+   <property name="icon">
+    <iconset resource="QtGuiApplication14.qrc">
+     <normaloff>:/QtGuiApplication14/Resources/newfolder.png</normaloff>:/QtGuiApplication14/Resources/newfolder.png</iconset>
+   </property>
    <property name="text">
     <string>New</string>
    </property>
@@ -58,11 +64,22 @@
    </property>
   </action>
   <action name="actionICD">
+   <property name="icon">
+    <iconset resource="QtGuiApplication14.qrc">
+     <normaloff>:/QtGuiApplication14/Resources/newfolder.png</normaloff>:/QtGuiApplication14/Resources/newfolder.png</iconset>
+   </property>
    <property name="text">
-    <string>Creat New ICD</string>
+    <string>Create New ICD</string>
+   </property>
+   <property name="toolTip">
+    <string>Create New ICD</string>
    </property>
   </action>
   <action name="importICD">
+   <property name="icon">
+    <iconset resource="QtGuiApplication14.qrc">
+     <normaloff>:/QtGuiApplication14/Resources/folder-next-512.png</normaloff>:/QtGuiApplication14/Resources/folder-next-512.png</iconset>
+   </property>
    <property name="text">
     <string>Import ICD</string>
    </property>

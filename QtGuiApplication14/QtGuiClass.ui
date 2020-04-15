@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>788</width>
-    <height>644</height>
+    <width>589</width>
+    <height>260</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -270,29 +270,6 @@
    </property>
    <property name="text">
     <string>Export as XML</string>
-   </property>
-  </widget>
-  <widget class="QPlainTextEdit" name="plainTextEdit">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>260</y>
-     <width>391</width>
-     <height>301</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_4">
-   <property name="geometry">
-    <rect>
-     <x>430</x>
-     <y>270</y>
-     <width>81</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>İmport as XML</string>
    </property>
   </widget>
  </widget>
