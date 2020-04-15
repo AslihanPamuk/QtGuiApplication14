@@ -28,10 +28,14 @@ public:
 
 	void dosya();
 	void dosya2();
+	void dosya3();
+	
 		
 public slots:
+
 	void dosyaGetir();
 	void dosyaAl();
+	void dosyaBilgi();
 
 private:
 	Ui::QtGuiApplication14Class ui;

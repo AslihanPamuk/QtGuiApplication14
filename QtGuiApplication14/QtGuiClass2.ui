@@ -26,14 +26,27 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>490</x>
-     <y>150</y>
+     <x>500</x>
+     <y>50</y>
      <width>111</width>
      <height>61</height>
     </rect>
    </property>
    <property name="text">
     <string>Import XML</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>310</y>
+     <width>111</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Import CSV</string>
    </property>
   </widget>
  </widget>

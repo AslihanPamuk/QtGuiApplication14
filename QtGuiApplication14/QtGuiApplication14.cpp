@@ -1,6 +1,7 @@
 #include "QtGuiApplication14.h"
 #include "QtGuiClass.h"
 #include "QtGuiClass2.h"
+#include "QtGuiClass3.h"
 
 
 QtGuiApplication14::QtGuiApplication14(QWidget *parent)
@@ -9,6 +10,7 @@ QtGuiApplication14::QtGuiApplication14(QWidget *parent)
 	ui.setupUi(this);
     dosya();   
     dosya2();
+    dosya3();
 }
 
 void QtGuiApplication14::dosya()
@@ -20,6 +22,13 @@ void QtGuiApplication14::dosya2()
 {
     connect(ui.importICD, SIGNAL(triggered()), this, SLOT(dosyaAl()));
 }
+
+void QtGuiApplication14::dosya3()
+{
+    connect(ui.actionInformation, SIGNAL(triggered()), this, SLOT(dosyaBilgi()));
+}
+
+
 
 void QtGuiApplication14::dosyaAl()
 {
@@ -35,6 +44,12 @@ void QtGuiApplication14::dosyaGetir()
     mdialog.exec();
 } 
 
+void QtGuiApplication14::dosyaBilgi()
+{
+    QtGuiClass3 mdialog3;
+    mdialog3.setModal(true);
+    mdialog3.exec();
+}
 
 
 

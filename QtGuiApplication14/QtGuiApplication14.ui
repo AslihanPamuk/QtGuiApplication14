@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>549</width>
-    <height>422</height>
+    <width>911</width>
+    <height>630</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>549</width>
+     <width>911</width>
      <height>21</height>
     </rect>
    </property>
@@ -36,7 +36,14 @@
     </widget>
     <addaction name="menuNew"/>
    </widget>
+   <widget class="QMenu" name="menuInformation">
+    <property name="title">
+     <string>Information</string>
+    </property>
+    <addaction name="actionInformation"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuInformation"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -47,6 +54,7 @@
    </attribute>
    <addaction name="actionICD"/>
    <addaction name="importICD"/>
+   <addaction name="actionInformation"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNew">
@@ -82,6 +90,15 @@
    </property>
    <property name="text">
     <string>Import ICD</string>
+   </property>
+  </action>
+  <action name="actionInformation">
+   <property name="icon">
+    <iconset resource="QtGuiApplication14.qrc">
+     <normaloff>:/QtGuiApplication14/Resources/information.png</normaloff>:/QtGuiApplication14/Resources/information.png</iconset>
+   </property>
+   <property name="text">
+    <string>Information import-export files</string>
    </property>
   </action>
  </widget>

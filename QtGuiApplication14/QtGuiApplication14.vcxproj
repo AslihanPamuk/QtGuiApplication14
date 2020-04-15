@@ -84,6 +84,7 @@
     <ClCompile Include="QtGuiApplication14.cpp" />
     <ClCompile Include="QtGuiClass.cpp" />
     <ClCompile Include="QtGuiClass2.cpp" />
+    <ClCompile Include="QtGuiClass3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QtGuiApplication14.h" />
@@ -92,6 +93,7 @@
     <QtUic Include="QtGuiApplication14.ui" />
     <QtUic Include="QtGuiClass.ui" />
     <QtUic Include="QtGuiClass2.ui" />
+    <QtUic Include="QtGuiClass3.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="QtGuiApplication14.qrc" />
@@ -101,6 +103,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QtGuiClass2.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="QtGuiClass3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

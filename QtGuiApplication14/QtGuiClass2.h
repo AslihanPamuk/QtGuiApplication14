@@ -12,10 +12,13 @@ public:
 	~QtGuiClass2();
 
 	void al();
+	void al2();
+	
 
 public slots:
 
 	void aldim();
+	void aldim2();
 
 
 

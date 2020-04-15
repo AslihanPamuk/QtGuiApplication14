@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QtGuiClass3</class>
+ <widget class="QDialog" name="QtGuiClass3">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>621</width>
+    <height>372</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>QtGuiClass3</string>
+  </property>
+  <widget class="QPlainTextEdit" name="plainTextEdit">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>621</width>
+     <height>371</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAsNeeded</enum>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>false</bool>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+   <property name="plainText">
+    <string>Create New ICD: Ekipmanlar için yeni bir ICD dosyası oluşturulmasını sağlar.
+
+Export CSV: Oluşturulan ICD dosyasını CSV formatında kaydetmeyi sağlar.
+
+Export XML: Oluşturulan ICD dosyasını XML formatında kaydetmeyi sağlar.
+
+Import CSV: Dışarıda var olan CSV formatındaki ICD dosyasını parse eder. 
+
+Import XML: Dışarıda var olan XML formatındaki ICD dosyasını parse eder.</string>
+   </property>
+   <property name="backgroundVisible">
+    <bool>false</bool>
+   </property>
+   <property name="centerOnScroll">
+    <bool>false</bool>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

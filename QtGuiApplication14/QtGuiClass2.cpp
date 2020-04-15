@@ -19,13 +19,14 @@
 #include <QXmlStreamReader>
 #include <qplaintextedit.h>
 #include <qtguiglobal.h>
-
+#include <qbytearray.h>
 
 QtGuiClass2::QtGuiClass2(QWidget *parent)
 	: QDialog(parent)
 {
 	ui.setupUi(this);
 	al();
+    al2();
 }
 
 QtGuiClass2::~QtGuiClass2()
@@ -38,6 +39,31 @@ void QtGuiClass2::al()
  connect(ui.pushButton, SIGNAL(clicked()), this, SLOT(aldim()));
 	
 
+}
+
+void QtGuiClass2::al2()
+{
+    connect(ui.pushButton_2, SIGNAL(clicked()), this, SLOT(aldim2()));
+}
+
+void QtGuiClass2::aldim2()
+{
+    QString filename = QFileDialog::getOpenFileName(
+        this,
+        tr("Open Document"),
+        QDir::currentPath(),
+        tr("Comma Separated Values Spreadsheet (*.csv);;"));
+    QFile f(filename);
+
+    if (f.open(QTemporaryFile::ReadOnly | QFile::Truncate))
+    {
+        QTextStream in(&f);
+        while (!in.atEnd())
+        {
+            QString line = in.readLine();
+            ui.plainTextEdit->appendPlainText(line);
+        }
+    }
 }
 
 void QtGuiClass2::aldim()
