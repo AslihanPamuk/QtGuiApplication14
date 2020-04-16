@@ -12,11 +12,9 @@ public:
 	QtGuiClass(QWidget *parent = Q_NULLPTR);
 	~QtGuiClass();
 	void enter();
-	void bas(); 
-	void aktar();
+	
 
-
-public slots:
+	public slots:
 	void cek();
 	void at();
 	void aktarilan();

@@ -1,4 +1,4 @@
-#include "QtGuiClass3.h"
+﻿#include "QtGuiClass3.h"
 #include "QtGuiClass2.h"
 #include <qdebug.h>
 #include <QFile>
@@ -21,6 +21,8 @@
 #include <qplaintextedit.h>
 #include <qtguiglobal.h>
 #include <qbytearray.h>
+
+//Action bardaki information butonuna tıklandığında program hakkında bilgi vermek amacıyla bir sayfa açılır. Actionbarda bulunan selectionlar hakkında kısa bilgiler verir.
 
 QtGuiClass3::QtGuiClass3(QWidget *parent)
 	: QDialog(parent)

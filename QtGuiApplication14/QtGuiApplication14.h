@@ -27,9 +27,6 @@ public:
 	QtGuiApplication14(QWidget *parent = Q_NULLPTR);
 
 	void dosya();
-	void dosya2();
-	void dosya3();
-	
 		
 public slots:
 
