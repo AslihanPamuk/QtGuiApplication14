@@ -31,6 +31,8 @@ void QtGuiClass2::al()
 
 void QtGuiClass2::aldim2()
 {
+
+
     QString filename = QFileDialog::getOpenFileName( //Bilgisayardaki herhangi bir yerdeki dosyayı açmak için yazılmıştır.
         this,
         tr("Open Document"), //Açılan dosyanın başlığında Save Document yazar.
@@ -40,13 +42,14 @@ void QtGuiClass2::aldim2()
     QFile f(filename); //CSV formatında okunacak olan dosya oluşturulur. 
     {
 
-    if (f.open(QTemporaryFile::ReadOnly | QFile::Truncate)) //Dosyayı okuma işleminin gerçekleşmesi için. Filename'in içindekiler string formatında f'in içerisinde tutulur. (Temporaryfile: unique dosyalar oluşturur, truncate: yazdırdığı dosyada daha önceden bulunan şeyleri siler, temiz bir yazım yapmak için kullanılır.
-    {
-        QTextStream in(&f); //QTextStream metin yazmak için uygun bir arayüz sağlar.
-        while (!in.atEnd())
+        if (f.open(QTemporaryFile::ReadOnly | QFile::Truncate)) //Dosyayı okuma işleminin gerçekleşmesi için. Filename'in içindekiler string formatında f'in içerisinde tutulur. (Temporaryfile: unique dosyalar oluşturur, truncate: yazdırdığı dosyada daha önceden bulunan şeyleri siler, temiz bir yazım yapmak için kullanılır.
         {
-            QString line = in.readLine(); //Açılan dosyadaki her bir line'ı oku ve string formatında line'a kaydet.
-            ui.plainTextEdit->appendPlainText(line); //plainTextEdit'e tuttuğun lineları yazdır.(her bir satıra ayrı olarak yazdırır.
+            QTextStream in(&f); //QTextStream metin yazmak için uygun bir arayüz sağlar.
+            while (!in.atEnd())
+            {
+                QString line = in.readLine(); //Açılan dosyadaki her bir line'ı oku ve string formatında line'a kaydet.
+                ui.plainTextEdit->appendPlainText(line); //plainTextEdit'e tuttuğun lineları yazdır.(her bir satıra ayrı olarak yazdırır.
+            }
         }
     }
 }
@@ -74,11 +77,11 @@ void QtGuiClass2::aldim()
                     if (reader.name() == "childA") //Eğer bir sonraki elementte childA yazıyorsa
                     {
                         QString s = reader.readElementText(); //İki element arasındaki texti string formatında s'in içinde tut
-                        
+
                         ui.plainTextEdit->appendPlainText(qPrintable(s)); //s'in içinde tuttuğun değeri plainTextEdit'e yazdır.
                     }
                     else
-                       reader.skipCurrentElement(); //Eğer childA yok ise bir sonraki elemente git.
+                        reader.skipCurrentElement(); //Eğer childA yok ise bir sonraki elemente git.
                 }
             }
             else
@@ -86,3 +89,4 @@ void QtGuiClass2::aldim()
         }
     }
 }
+
