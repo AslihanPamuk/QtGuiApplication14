@@ -1,31 +1,22 @@
 ﻿#include "QtGuiClass2.h"
 #include <qdebug.h>
 #include <QFile>
-#include <qtablewidget.h>
-#include <qpushbutton.h>
-#include <qlabel.h>
-#include <qcombobox.h>
 #include <qstring.h>
-#include <qmenu.h>
 #include <qfiledialog.h>
 #include <qdir.h>
 #include <qtemporaryfile.h>
 #include <qdatastream.h>
-#include <qmenu.h>
-#include <qaction.h>
 #include <qdialog.h>
 #include <QtXml/qxml.h>
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
-#include <qplaintextedit.h>
 #include <qtguiglobal.h>
-#include <qbytearray.h>
 
 QtGuiClass2::QtGuiClass2(QWidget *parent)
 	: QDialog(parent)
 {
 	ui.setupUi(this);
-	al();
+	al(); //Main fonksiyonunda al fonksiyonunu döndürür.
 }
 
 QtGuiClass2::~QtGuiClass2()
@@ -43,18 +34,19 @@ void QtGuiClass2::aldim2()
     QString filename = QFileDialog::getOpenFileName( //Bilgisayardaki herhangi bir yerdeki dosyayı açmak için yazılmıştır.
         this,
         tr("Open Document"), //Açılan dosyanın başlığında Save Document yazar.
-        QDir::currentPath(),
-        tr("Comma Separated Values Spreadsheet (*.csv);;")); //Açılan dosya biçimi olarak Comma Separated Values Spreadsheet (*.csv) yazar.
+        QDir::currentPath(), //Dosyanın alınacağı yer anlık olarak seçilir.
+        tr("Comma Separated Values Spreadsheet (*.csv);;")); //Açılan dosya biçimi olarak Comma Separated Values Spreadsheet (*.csv) yazar. (save as type)
 
-    QFile f(filename); //CSV formatında okunacak olan dosya oluşturulur.
-
-    if (f.open(QTemporaryFile::ReadOnly | QFile::Truncate)) //Dosyayı okuma işleminin gerçekleşmesi için.
+    QFile f(filename); //CSV formatında okunacak olan dosya oluşturulur. 
     {
-        QTextStream in(&f);
+
+    if (f.open(QTemporaryFile::ReadOnly | QFile::Truncate)) //Dosyayı okuma işleminin gerçekleşmesi için. Filename'in içindekiler string formatında f'in içerisinde tutulur. (Temporaryfile: unique dosyalar oluşturur, truncate: yazdırdığı dosyada daha önceden bulunan şeyleri siler, temiz bir yazım yapmak için kullanılır.
+    {
+        QTextStream in(&f); //QTextStream metin yazmak için uygun bir arayüz sağlar.
         while (!in.atEnd())
         {
             QString line = in.readLine(); //Açılan dosyadaki her bir line'ı oku ve string formatında line'a kaydet.
-            ui.plainTextEdit->appendPlainText(line); //plainTextEdit'e tuttuğun lineları yazdır.
+            ui.plainTextEdit->appendPlainText(line); //plainTextEdit'e tuttuğun lineları yazdır.(her bir satıra ayrı olarak yazdırır.
         }
     }
 }
@@ -64,14 +56,14 @@ void QtGuiClass2::aldim()
     QString filename = QFileDialog::getOpenFileName( //Bilgisayardaki herhangi bir yerdeki dosyayı açmak için yazılmıştır.
         this,
         tr("Open Document"), //Açılan dosyanın başlığında Save Document yazar.
-        QDir::currentPath(),
-        tr("Extensible Markup Language Spreadsheet (*.xml);;")); //Açılan dosya biçimi olarak Extensible Markup Language Spreadsheet (*.xml) yazar.
+        QDir::currentPath(), //Dosyanın alınacağı yer anlık olarak seçilir.
+        tr("Extensible Markup Language Spreadsheet (*.xml);;")); //Açılan dosya biçimi olarak Extensible Markup Language Spreadsheet (*.xml) yazar. (save as type)
 
     QFile f(filename); //XML formatında okunacak olan dosya oluşturulur.
 
     if (f.open(QTemporaryFile::ReadOnly | QFile::Truncate)) //Dosyayı okuma işleminin gerçekleşmesi için.
     {
-        QXmlStreamReader reader(&f);
+        QXmlStreamReader reader(&f); //Yazılan bilgiyi okuyabilmek için kullanılır.
 
         if (reader.readNextStartElement())
         {
@@ -85,7 +77,6 @@ void QtGuiClass2::aldim()
                         
                         ui.plainTextEdit->appendPlainText(qPrintable(s)); //s'in içinde tuttuğun değeri plainTextEdit'e yazdır.
                     }
-
                     else
                        reader.skipCurrentElement(); //Eğer childA yok ise bir sonraki elemente git.
                 }

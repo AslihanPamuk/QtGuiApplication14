@@ -8,7 +8,7 @@ QtGuiApplication14::QtGuiApplication14(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
-    dosya();   
+    dosya();   //Main fonksiyonunda dosya fonksiyonunu döndürür.
   
 }
 
@@ -23,22 +23,23 @@ void QtGuiApplication14::dosya()
 void QtGuiApplication14::dosyaGetir() //QtGuiClass.ui adlı QDialog Gui ekranının açılmasını sağlar.
 {
     QtGuiClass mdialog;
-    mdialog.setModal(true);
-    mdialog.exec();
+    mdialog.setModal(true); //Modal dialog oluşturulur.(Modal oluşturmak demek dialog penceresi açıldığı zaman diğer pencelerede bir işlem yapamayacağın anlamına geliyor.)
+    mdialog.exec(); //Modal dialog gösterilir. 
+ 
 }
 
 void QtGuiApplication14::dosyaAl()  ////QtGuiClass2.ui adlı QDialog2 Gui ekranının açılmasını sağlar.
 {
     QtGuiClass2 mdialog2;
-    mdialog2.setModal(true);
-    mdialog2.exec();
+    mdialog2.setModal(true); //Modal dialog oluşturulur.(Modal oluşturmak demek dialog penceresi açıldığı zaman diğer pencelerede bir işlem yapamayacağın anlamına geliyor.)
+    mdialog2.exec(); //Modal dialog gösterilir.
 }
 
 void QtGuiApplication14::dosyaBilgi()   //QtGuiClass3.ui adlı QDialog3 Gui ekranının açılmasını sağlar.
 {
     QtGuiClass3 mdialog3;
-    mdialog3.setModal(true);
-    mdialog3.exec();
+    mdialog3.setModal(true); //Modal dialog oluşturulur.(Modal oluşturmak demek dialog penceresi açıldığı zaman diğer pencelerede bir işlem yapamayacağın anlamına geliyor.)
+    mdialog3.exec(); //Modal dialog gösterilir.
 }
 
 

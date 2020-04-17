@@ -1,18 +1,11 @@
 ﻿#include "QtGuiClass.h"
 #include <qdebug.h>
 #include <QFile>
-#include <qtablewidget.h>
-#include <qpushbutton.h>
-#include <qlabel.h>
-#include <qcombobox.h>
 #include <qstring.h>
-#include <qmenu.h>
 #include <qfiledialog.h>
 #include <qdir.h>
 #include <qtemporaryfile.h>
 #include <qdatastream.h>
-#include <qmenu.h>
-#include <qaction.h>
 #include <qdialog.h>
 #include <QtXml/qxml.h>
 #include <QXmlStreamWriter>
@@ -20,12 +13,11 @@
 #include <qplaintextedit.h>
 #include <qtguiglobal.h>
 
-
 QtGuiClass::QtGuiClass(QWidget *parent)
 	: QDialog(parent)
 {
 	ui.setupUi(this);
-	enter();
+	enter(); //Main fonksiyonunda enter fonksiyonunu döndürür.
 }
 
 QtGuiClass::~QtGuiClass()
@@ -52,16 +44,16 @@ void QtGuiClass::at()
 {
     QString filename = QFileDialog::getSaveFileName(  //Bilgisayardaki herhangi bir yere farklı kaydet işlemi yapmak için yazılmıştır.
         this,
-        tr("Save Document"),  //Açılan dosyanın başlığında Save Document yazar.
-        QDir::currentPath(),
-        tr("Comma Separated Values Spreadsheet (*.csv);;"));  //Kaydetme dosya biçimi olarak Comma Separated Values Spreadsheet (*.csv) yazar.
+        tr("Save Document"),  //Açılan dosyanın başlığında Save Document yazar. (caption)
+        QDir::currentPath(), //Dosyanın kaydedileceği yer anlık olarak seçilir.
+        tr("Comma Separated Values Spreadsheet (*.csv);;"));  //Kaydetme dosya biçimi olarak Comma Separated Values Spreadsheet (*.csv) yazar. (save as type)  
     
-    QFile f(filename); //CSV formatında yazılacak olan dosya oluşturulur.
+    QFile f(filename); //CSV formatında yazılacak olan dosya oluşturulur.Filename içerisine yazılanlar f'de tutulur.
 
-        if (f.open(QTemporaryFile::WriteOnly | QFile::Truncate)) //Dosyaya yazma işleminin gerçekleşmesi için.
+        if (f.open(QTemporaryFile::WriteOnly | QFile::Truncate)) //Dosyaya yazma işleminin gerçekleşmesi için. (Temporaryfile: unique dosyalar oluşturur, truncate: yazdırdığı dosyada daha önceden bulunan şeyleri siler, temiz bir yazım yapmak için kullanılır.
     {
-        QTextStream data(&f);
-        QStringList strList;
+        QTextStream data(&f); //QTextStream metin yazmak için uygun bir arayüz sağlar.
+        QStringList strList; //Stringleri listelemek için.
         strList.clear();
 
         for (int c = 0; c < ui.tableWidget->columnCount(); ++c) //Kolonlardaki değerleri çeker.
@@ -69,7 +61,7 @@ void QtGuiClass::at()
             strList << ui.tableWidget->horizontalHeaderItem(c)->data(Qt::DisplayRole).toString(); //Kolondaki başlıkları alır.
 
         }
-        data << strList.join(",") + "\n"; //CSV formatında yazılmasını sağlar.
+        data << strList.join(",") + "\n"; //Kolondaki başlıkların CSV formatında yazılmasını sağlar.
 
         for (int r = 0; r < ui.tableWidget->rowCount(); ++r) //Satırdaki değerleri çeker.
         {
@@ -77,7 +69,6 @@ void QtGuiClass::at()
             for (int c = 0; c < ui.tableWidget->columnCount(); ++c)
             {
                 strList << ui.tableWidget->item(r, c)->text(); //Satır ve sütun değerlerini oluşturur.
-
             }
             data << strList.join(",") + "\n"; //CSV formatında yazdırır.
         }
@@ -92,16 +83,16 @@ void QtGuiClass::aktarilan()
     QString filename = QFileDialog::getSaveFileName(  //Bilgisayardaki herhangi bir yere farklı kaydet işlemi yapmak için yazılmıştır.
         this,
         tr("Save Document"), //Açılan dosyanın başlığında Save Document yazar.
-        QDir::currentPath(),
-        tr("Extensible Markup Language Spreadsheet (*.xml);;")); //Kaydetme dosya biçimi olarak Extensible Markup Language Spreadsheet (*.xml) yazar.
+        QDir::currentPath(), //Dosyanın kaydedileceği yer anlık olarak seçilir.
+        tr("Extensible Markup Language Spreadsheet (*.xml);;")); //Kaydetme dosya biçimi olarak Extensible Markup Language Spreadsheet (*.xml) yazar. (save as type:)
 
-    QFile f(filename); //XML formatında yazılacak olan dosya oluşturulur.
+    QFile f(filename); //XML formatında yazılacak olan dosya oluşturulur. Filename içerisine yazılanlar string formatında f'in içinde tutulur.
 
     if (f.open(QTemporaryFile::WriteOnly | QFile::Truncate)) //Dosyaya yazma işleminin gerçekleşmesi için.
     {
-        QXmlStreamWriter xmlWriter(&f);
-        xmlWriter.setAutoFormatting(true);
-        xmlWriter.writeStartDocument();
+        QXmlStreamWriter xmlWriter(&f); 
+        xmlWriter.setAutoFormatting(true); //Otomatik formatlamayı sağlar.
+        xmlWriter.writeStartDocument(); //Yazmaya başladığı dosyanın en başına "<?xml version="1.0" encoding="UTF-8"?>" ibaresini ekler. 
 
         for (int c = 0; c < ui.tableWidget->columnCount(); ++c) //Kolonlardaki değerleri çeker.
         {
@@ -119,7 +110,6 @@ void QtGuiClass::aktarilan()
         f.close(); //Dosya kapatılır.
        
     }
-
 }
 
             
