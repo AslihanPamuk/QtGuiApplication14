@@ -74,7 +74,7 @@ void QtGuiClass2::aldim()
             {
                 while (reader.readNextStartElement()) //Bir sonraki elemente git
                 {
-                    if (reader.name() == "childA") //Eğer bir sonraki elementte childA yazıyorsa
+                    if (reader.name() == "A") //Eğer bir sonraki elementte childA yazıyorsa
                     {
                         QString s = reader.readElementText(); //İki element arasındaki texti string formatında s'in içinde tut
 

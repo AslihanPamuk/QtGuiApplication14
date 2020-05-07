@@ -71,7 +71,9 @@ void QtGuiClass::at()
                 strList << ui.tableWidget->item(r, c)->text(); //Satır ve sütun değerlerini oluşturur.
             }
             data << strList.join(",") + "\n"; //CSV formatında yazdırır.
+            
         }
+        
 
         f.flush(); //Yazma işlemi olduğu için dosya bir miktar bekletilir.
         f.close(); //Dosya kapatılır.
